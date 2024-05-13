@@ -1,11 +1,11 @@
 bool isPalindrome(int x) {
     if (x < 0||(x%10==0&&x!=0)){
-        return false;
+        return false;//排除末尾是0的情况，负数的情况，数字为零
     }
     int revertedNumber = 0;
     while(x>revertedNumber){
-        revertedNumber = revertedNumber*10 + x%10;
-        x/=10;
+        revertedNumber = revertedNumber*10 + x%10;//一步步的将数字反转过来
+        x/=10;去除已经反转过的数；
     }
-    return x==revertedNumber||x==revertedNumber/10;
+    return x==revertedNumber||x==revertedNumber/10;//考虑到了奇数的情况；
 }
