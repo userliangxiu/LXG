@@ -2,7 +2,9 @@ class Solution:
     def isValid(self, s: str) -> bool:
         dic = {'(':')','[':']','{':'}','?':'?'}
         stack = ['?']
-        for c in s:
-            if c in dic:stack.append(c)
-            elif dic[stack.pop()]!=c:return False
-        return len(stack)==1
+        for c in s:#循环遍历字符串；如果字符在数据字典中就在栈中添加这个这个字符
+            if c in dic:
+                stack.append(c)#一直进行添加的操作；直到全部添加完成
+            elif dic[stack.pop()]!=c:#添加完成之后进行出栈的操作
+                return False
+        return len(stack)==1#最后计算栈的长度如果是1的话就是正确的；
