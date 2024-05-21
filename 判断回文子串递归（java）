@@ -1,0 +1,26 @@
+public class PalindromeRecursive {
+    public static boolean isPalindrome(String s) {
+        // 基本情况：如果字符串为空或者只有一个字符，它一定是回文
+        if (s == null || s.length() <= 1) {
+            return true;
+        }
+
+        // 递归情况：比较字符串的第一个字符和最后一个字符是否相等
+        if (s.charAt(0) == s.charAt(s.length() - 1)) {
+            // 如果相等，继续递归判断去掉首尾字符的子串是否为回文
+            return isPalindrome(s.substring(1, s.length() - 1));
+        } else {
+            // 如果不相等，说明不是回文
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        String s = "level";
+        if (isPalindrome(s)) {
+            System.out.println(s + " 是回文字符串");
+        } else {
+            System.out.println(s + " 不是回文字符串");
+        }
+    }
+}
